@@ -1,0 +1,44 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the associated paper."
+title: "A Multivariate POD-LSTM Reduced-Order Model for Ocean Surface Dynamics in the North Sea and Baltic Sea"
+abstract: >-
+  A multivariate Proper Orthogonal Decomposition - Long Short-Term Memory
+  (POD-LSTM) framework that jointly embeds five coupled surface fields
+  (SST, MSLP, heat flux, wind, net precipitation) from ERA5 reanalysis
+  into a single low-dimensional subspace and predicts their one-month-ahead
+  evolution over the North Sea and Baltic Sea.
+authors:
+  - family-names: Rezaee
+    given-names: Sahar
+    email: s_rezaee@mathdep.iust.ac.ir
+    affiliation: "Iran University of Science and Technology"
+  - family-names: Ardestani
+    given-names: Mahnaz
+    email: mahnaz.ardestani@outlook.com
+  - family-names: Pourroostaei Ardakani
+    given-names: Saeid
+    email: s.pourroostaeiardakani@qmul.ac.uk
+    affiliation: "Queen Mary University of London"
+keywords:
+  - Reduced-order modeling
+  - POD-LSTM
+  - North Sea
+  - Baltic Sea
+  - ERA5
+  - Predictive analysis
+license: MIT
+version: 1.0.0
+date-released: 2026-09-17
+preferred-citation:
+  type: article
+  title: "A Multivariate POD-LSTM Reduced-Order Model for Ocean Surface Dynamics in the North Sea and Baltic Sea"
+  authors:
+    - family-names: Rezaee
+      given-names: Sahar
+    - family-names: Ardestani
+      given-names: Mahnaz
+    - family-names: Pourroostaei Ardakani
+      given-names: Saeid
+  journal: "Computers & Geosciences"
+  year: 2026
+  note: "Submitted"
