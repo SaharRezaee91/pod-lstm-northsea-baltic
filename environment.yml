@@ -1,0 +1,18 @@
+name: pod-lstm
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - numpy>=1.24,<2.0
+  - scipy>=1.10
+  - pandas>=2.0
+  - xarray>=2023.1
+  - netcdf4>=1.6
+  - pytorch>=2.0
+  - scikit-learn>=1.3
+  - statsmodels>=0.14
+  - matplotlib>=3.7
+  - cartopy>=0.22
+  - openpyxl>=3.1
+  - cdsapi>=0.6
+  - tqdm>=4.65
