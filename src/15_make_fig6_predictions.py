@@ -1,4 +1,19 @@
-"""15_make_fig6_predictions.py - Figure 6 (matching paper)."""
+"""
+15_make_fig6_predictions.py — Figure 6: POD coefficient predictions.
+
+Six-panel time series for the six leading modes over the test period
+(Jan 2018 – Dec 2024). Each panel compares the observed coefficients
+(solid dark line) with LSTM predictions (dashed red) and the tuned
+Ridge baseline (dotted blue). Per-mode RMSE values are shown in the
+panel titles.
+
+Input : results/true_test_v2.npy
+        results/TLv2_pred_lstm.npy, TLv2_rmse_lstm.npy
+        results/pred_ridge_tuned.npy, rmse_ridge_tuned.npy
+Output: figures/fig6_predictions.png, fig6_predictions.pdf
+
+Paper : Section 4.3; Figure 6
+"""
 import os
 import numpy as np
 import matplotlib.pyplot as plt

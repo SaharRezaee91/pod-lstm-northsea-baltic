@@ -1,4 +1,25 @@
-"""21_make_table_a2.py - Tables A1, A2: RMSE/MAE modes 11-20 + R²/r."""
+"""
+21_make_table_a2.py — Tables A1 and A2 (Appendix A).
+
+Table A1: continuation of Table 3, reporting RMSE and MAE for modes
+          11-20 for LSTM, tuned Ridge, and ARIMA.
+
+Table A2: coefficient of determination (R²) and Pearson correlation
+          coefficient (r) for all 20 retained modes, computed against
+          the observed test-period coefficients. Mean across modes is
+          reported in the last row.
+
+Input : results/true_test_v2.npy
+        results/TLv2_pred_lstm.npy, pred_ridge_tuned.npy, TLv2_pred_arima.npy
+        results/TLv2_rmse_lstm.npy, rmse_ridge_tuned.npy, TLv2_rmse_arima.npy
+        results/TLv2_mae_lstm.npy,  mae_ridge_tuned.npy,  TLv2_mae_arima.npy
+        data/pod_variance_ratio.npy
+Output: results/Tables_A1_A2.xlsx
+        results/r2_*_FINAL.npy, pearson_*_FINAL.npy
+        results/r2_ridge_tuned.npy, r_ridge_tuned.npy
+
+Paper : Appendix A; Tables A1, A2
+"""
 import os
 import numpy as np
 import pandas as pd

@@ -1,4 +1,19 @@
-"""04_train_pod_lstm.py - Main POD-LSTM (Table 2 of paper)."""
+"""
+04_train_pod_lstm.py — Train the main multivariate POD-LSTM model.
+
+Single LSTM layer (32 hidden units) + dropout (0.3) + two-layer FC decoder
+(32 → 20 units, tanh). Trained with Adam (lr 5e-4, weight decay 1e-3),
+gradient clipping at 1.0, early stopping on validation loss. The checkpoint
+with the lowest validation loss is retained for test evaluation.
+
+Input : data/pod_A_train.npy, pod_A_val.npy, pod_A_test.npy
+Output: results/TLv2_pred_lstm.npy      (84, 20)
+        results/TLv2_rmse_lstm.npy, TLv2_mae_lstm.npy
+        results/TLv2_train_losses.npy, TLv2_val_losses.npy
+        results/true_test_v2.npy  (aligned ground truth for all baselines)
+
+Paper : Section 3.4 (LSTM architecture and training); Table 2
+"""
 import os
 import random
 import numpy as np

@@ -1,4 +1,17 @@
-"""14_make_fig5_training_curves.py - Figure 5 (final)."""
+"""
+14_make_fig5_training_curves.py — Figure 5: LSTM learning curves.
+
+Two-panel figure of training and validation loss over 300 epochs:
+  (a) Training MSE, decreasing monotonically from ~1.0 to ~0.88.
+  (b) Validation MSE, evaluated every 10 epochs. The dashed vertical
+      line marks the best checkpoint (lowest validation loss), which
+      is the state retained for all downstream evaluations.
+
+Input : results/TLv2_train_losses.npy, TLv2_val_losses.npy
+Output: figures/fig5_training_curves.png, fig5_training_curves.pdf
+
+Paper : Section 4.2; Figure 5
+"""
 import os
 import numpy as np
 import matplotlib.pyplot as plt

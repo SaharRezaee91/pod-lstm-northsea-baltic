@@ -1,4 +1,19 @@
-"""16_make_fig7_comparison.py - Figure 7 (paper-style)."""
+"""
+16_make_fig7_comparison.py — Figure 7: LSTM vs tuned Ridge comparison.
+
+Three-panel figure across all 20 retained POD modes:
+  (a) RMSE per mode for LSTM and tuned Ridge.
+  (b) Relative RMSE difference (%) between the two models, with the
+      mean difference marked by a dashed horizontal line.
+  (c) RMSE versus mode variance, with mode labels M1-M6 highlighting
+      the six leading modes.
+
+Input : results/TLv2_rmse_lstm.npy, rmse_ridge_tuned.npy
+        data/pod_variance_ratio.npy
+Output: figures/fig7_comparison.png, fig7_comparison.pdf
+
+Paper : Section 4.3; Figure 7
+"""
 import os
 import numpy as np
 import matplotlib.pyplot as plt

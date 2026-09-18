@@ -1,4 +1,17 @@
-"""12_make_fig3_spatial_modes.py - Figure 3 (row 1 slightly lower)."""
+"""
+12_make_fig3_spatial_modes.py — Figure 3: spatial POD modes (SST block).
+
+Six-panel map showing the SST component of the six leading POD modes.
+The POD basis itself is built from the joint five-variable state vector;
+only the SST block of Vt is shown here because it admits the most direct
+physical interpretation.
+
+Input : data/pod_Vt_sst.npy, data/pod_variance_ratio.npy
+        data/era5_processed_1979_2024.nc  (for the geographic grid)
+Output: figures/fig3_spatial_modes.png, fig3_spatial_modes.pdf
+
+Paper : Section 4.1; Figure 3
+"""
 import os
 import numpy as np
 import xarray as xr

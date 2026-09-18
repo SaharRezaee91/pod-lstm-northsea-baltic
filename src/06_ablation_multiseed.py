@@ -1,4 +1,22 @@
-"""06_ablation_multiseed.py - 10-seed ablation (LSTM/GRU/univariate)."""
+"""
+06_ablation_multiseed.py — Ablation study across 10 random seeds.
+
+Compares three architectures on the test period using matched seeds:
+  1. Multivariate LSTM (the main model)
+  2. Multivariate GRU (identical setup, different recurrent cell)
+  3. Univariate SST-only LSTM (separate POD on SST alone)
+
+Reports per-mode RMSE (averaged across seeds) and per-seed overall
+RMSE (used for paired t-test and Wilcoxon comparisons).
+
+Input : data/pod_A_train.npy, pod_A_val.npy, pod_A_test.npy
+Output: results/fig8_lstm_modes_FINAL.npy, fig8_gru_modes_FINAL.npy,
+        fig8_uv_modes_FINAL.npy
+        results/fig8_lstm_seeds_FINAL.npy, fig8_gru_seeds_FINAL.npy,
+        fig8_uv_seeds_FINAL.npy
+
+Paper : Section 3.6 (Ablation study); Figure 8
+"""
 import os
 import random
 import numpy as np

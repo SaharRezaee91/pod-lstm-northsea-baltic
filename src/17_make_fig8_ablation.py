@@ -1,4 +1,21 @@
-"""17_make_fig8_ablation.py - Figure 8 (paper-style, forced)."""
+"""
+17_make_fig8_ablation.py — Figure 8: ablation study.
+
+Three-panel comparison of multivariate LSTM, multivariate GRU, and
+univariate SST-only LSTM, each trained with 10 matched random seeds:
+  (a) Mean RMSE per POD mode (averaged across the 10 seeds).
+  (b) Mean test RMSE across all 20 modes.
+  (c) Seed-to-seed spread (mean +/- SD), with the paired t-test
+      p-value annotated in the panel title.
+
+Input : results/fig8_lstm_modes_FINAL.npy, fig8_gru_modes_FINAL.npy,
+        fig8_uv_modes_FINAL.npy
+        results/fig8_lstm_seeds_FINAL.npy, fig8_gru_seeds_FINAL.npy,
+        fig8_uv_seeds_FINAL.npy
+Output: figures/fig8_ablation.png, fig8_ablation.pdf
+
+Paper : Section 4.3; Figure 8
+"""
 import os
 import numpy as np
 import matplotlib.pyplot as plt

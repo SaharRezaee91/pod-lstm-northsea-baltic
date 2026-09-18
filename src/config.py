@@ -1,4 +1,14 @@
-"""config.py - Shared configuration (using ORIGINAL paper POD)."""
+"""
+config.py — Shared configuration for all pipeline scripts.
+
+Centralizes paths, hyperparameters, and plotting style. Every script in
+src/ imports from this module, so values such as N_MODES and TRAIN_END
+have a single source of truth.
+
+Input : none
+Output: none (only defines constants and file paths)
+Paper : Sections 3.2-3.5 (data splits, hyperparameters, baselines)
+"""
 import os
 
 BASE_DIR    = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

@@ -1,4 +1,18 @@
-"""13_make_fig4_temporal_modes.py - Figure 4: Temporal coefficients."""
+"""
+13_make_fig4_temporal_modes.py — Figure 4: temporal POD coefficients.
+
+Six-panel time series of the temporal amplitude a^(n)(t) for the six
+leading modes over the full 1979-2024 record. Pink shaded bands mark
+documented warm events (El Nino winters and the 2023-2024 warm period).
+The first mode shows a clear annual cycle; higher modes become
+progressively irregular at interannual and decadal timescales.
+
+Input : data/pod_U.npy, data/pod_S.npy, data/pod_variance_ratio.npy
+        data/era5_processed_1979_2024.nc  (for the time axis)
+Output: figures/fig4_temporal_modes.png, fig4_temporal_modes.pdf
+
+Paper : Section 4.1; Figure 4
+"""
 import os
 import numpy as np
 import xarray as xr

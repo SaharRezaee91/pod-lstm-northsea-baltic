@@ -1,5 +1,26 @@
 """
-18_make_fig9_reconstruction.py - Figure 9 (FINAL, thin colorbars, labels on col 1).
+18_make_fig9_reconstruction.py — Figure 9: spatial reconstruction of SST.
+
+Three-row, three-column figure over three representative test months
+(Jan 2018, Jul 2020, Dec 2024):
+
+  Row 1 (Observed anomaly):
+      Reconstruction from the observed POD coefficients (true_test_v2).
+  Row 2 (LSTM POD-ROM Reconstruction):
+      Reconstruction from the LSTM-predicted coefficients.
+  Row 3 (Error = LSTM - Observed):
+      Residual field, displayed on the +/- 0.3 normalized-unit scale
+      used in the paper.
+
+All three rows are in the same normalized coefficient space, so the
+error is directly comparable.
+
+Input : data/pod_Vt.npy (SST block = first 8601 columns)
+        results/true_test_v2.npy, TLv2_pred_lstm.npy
+        data/pod_coeffs_mean.npy, pod_coeffs_std.npy
+Output: figures/fig9_reconstruction.png, fig9_reconstruction.pdf
+
+Paper : Section 4.4; Figure 9
 """
 import os
 import numpy as np

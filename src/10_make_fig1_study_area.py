@@ -1,4 +1,16 @@
-"""10_make_fig1_study_area.py - Figure 1 (exact copy of your code)."""
+"""
+10_make_fig1_study_area.py — Figure 1: study-area SST statistics.
+
+Three-panel map of the study domain showing:
+  (a) Long-term mean SST (1979-2024)
+  (b) Standard deviation of SST (seasonal-cycle amplitude)
+  (c) SST anomaly for December 2024 relative to the 1979-2024 climatology
+
+Input : data/era5_sst_1979_2024.nc
+Output: figures/fig1_study_area.png, fig1_study_area.pdf
+
+Paper : Section 3.1; Figure 1
+"""
 import xarray as xr
 import numpy as np
 import matplotlib.pyplot as plt

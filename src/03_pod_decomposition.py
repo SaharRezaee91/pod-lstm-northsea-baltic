@@ -1,4 +1,20 @@
-"""03_pod_decomposition.py - Leakage-free POD (SVD on train only)."""
+"""
+03_pod_decomposition.py — Leakage-free POD of the multivariate state matrix.
+
+Performs economy SVD on the training-period matrix only, then projects
+validation and test states onto the same training-derived basis. No
+information from validation or test enters the spatial modes.
+
+Input : data/X_train.npy  (384, 17525)
+        data/X_val.npy    ( 84, 17525)
+        data/X_test.npy   ( 84, 17525)
+Output: data/pod_U.npy, pod_S.npy, pod_Vt.npy, pod_variance_ratio.npy
+        data/pod_A_train.npy, pod_A_val.npy, pod_A_test.npy
+        data/pod_coeffs_mean.npy, pod_coeffs_std.npy
+        data/pod_Vt_sst.npy  (SST block of Vt, first 8601 columns)
+
+Paper : Section 3.3 (Proper Orthogonal Decomposition)
+"""
 import os
 import numpy as np
 import config

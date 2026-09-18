@@ -1,4 +1,20 @@
-"""05_train_baselines.py - Ridge (tuned alpha) and ARIMA(2,0,1)."""
+"""
+05_train_baselines.py — Ridge and ARIMA baseline models.
+
+Ridge: predicts the 20-D POD coefficient vector from the flattened
+24-month input. Regularization alpha selected via the same validation
+protocol as the LSTM (Section 3.5); the optimum is alpha = 3000.
+
+ARIMA(2,0,1): order selected by AIC, fitted per mode on the full
+pre-test record (no held-out tuning).
+
+Input : data/pod_A_train.npy, pod_A_val.npy, pod_A_test.npy
+Output: results/pred_ridge_tuned.npy, rmse_ridge_tuned.npy, mae_ridge_tuned.npy
+        results/ridge_alpha_selection.txt
+        results/TLv2_pred_arima.npy, TLv2_rmse_arima.npy, TLv2_mae_arima.npy
+
+Paper : Section 3.5 (Baseline models and evaluation metrics)
+"""
 import os
 import numpy as np
 from statsmodels.tsa.arima.model import ARIMA

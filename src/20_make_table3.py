@@ -1,4 +1,18 @@
-"""20_make_table3.py - Table 3: RMSE and MAE (modes 1-10 + Mean)."""
+"""
+20_make_table3.py — Table 3: RMSE and MAE for the first 10 POD modes.
+
+Builds Table 3 of the paper: per-mode RMSE and MAE for LSTM, tuned
+Ridge, and ARIMA baselines, plus the relative RMSE change (LSTM vs
+Ridge). The Mean row reports averages across all 20 retained modes.
+Results are exported to Excel.
+
+Input : results/TLv2_rmse_lstm.npy, rmse_ridge_tuned.npy, TLv2_rmse_arima.npy
+        results/TLv2_mae_lstm.npy,  mae_ridge_tuned.npy,  TLv2_mae_arima.npy
+        data/pod_variance_ratio.npy
+Output: results/Table3.xlsx
+
+Paper : Section 4.3; Table 3
+"""
 import os
 import numpy as np
 import pandas as pd

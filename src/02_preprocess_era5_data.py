@@ -1,4 +1,23 @@
-"""02_preprocess_era5_data.py - Preprocess ERA5 (from raw files)."""
+"""
+02_preprocess_era5_data.py — Preprocess ERA5 into a standardized state matrix.
+
+Loads the five coupled surface fields, builds the ocean mask from the
+training-period SST field, applies a train-only z-score per grid point
+(no information from validation or test leaks into normalization), and
+concatenates the fields into a single state matrix X.
+
+Input : data/era5_sst_1979_2024.nc
+        data/era5_slp_1979_2024.nc
+        data/era5_heat_flux_1979_2024.nc
+        data/era5_wind_1979_2024.nc
+        data/era5_precip_evap_1979_2024.nc
+Output: data/ocean_mask.npy
+        data/X_train.npy  (384, 17525)
+        data/X_val.npy    ( 84, 17525)
+        data/X_test.npy   ( 84, 17525)
+
+Paper : Section 3.2 (Data preprocessing)
+"""
 import os
 import numpy as np
 import xarray as xr

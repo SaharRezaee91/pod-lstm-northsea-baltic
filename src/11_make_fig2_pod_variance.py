@@ -1,4 +1,16 @@
-"""11_make_fig2_pod_variance.py - Figure 2: POD variance spectrum."""
+"""
+11_make_fig2_pod_variance.py — Figure 2: POD variance spectrum.
+
+Two-panel figure:
+  (a) Variance per mode, first 60 modes; six leading modes highlighted.
+  (b) Cumulative variance with reference lines at 50%, 75%, 90%, and an
+      annotation at the 20-mode cutoff (79.6% of total variance).
+
+Input : data/pod_variance_ratio.npy
+Output: figures/fig2_pod_variance.png, fig2_pod_variance.pdf
+
+Paper : Section 4.1; Figure 2
+"""
 import os
 import numpy as np
 import matplotlib.pyplot as plt

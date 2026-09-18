@@ -1,4 +1,18 @@
-"""01_download_era5_data.py - Download ERA5 monthly means 1979-2024."""
+"""
+01_download_era5_data.py — Download ERA5 monthly means for the study domain.
+
+Reads from the Copernicus Climate Data Store (CDS) API. Downloads eight
+ERA5 variables (SST, MSLP, sensible/latent heat flux, u10, v10, total
+precipitation, evaporation) over the North Sea and Baltic Sea on a
+0.25-degree grid for January 1979 – December 2024.
+
+Input : CDS API credentials (~/.cdsapirc)
+Output: data/era5_raw_<variable>.nc   (one file per variable)
+        data/era5_processed_1979_2024.nc  (merged)
+        data/era5_sst_1979_2024.nc        (SST only)
+
+Paper : Section 3.1 (ERA5 reanalysis data)
+"""
 import os
 import cdsapi
 import xarray as xr

@@ -1,4 +1,22 @@
-"""23_make_fig_a1_sensitivity.py - Figure A1: Sensitivity analysis (paper-exact)."""
+"""
+23_make_fig_a1_sensitivity.py — Figure A1: hyperparameter sensitivity.
+
+Two-panel figure documenting the two key design choices:
+  (a) Best validation loss vs. input sequence length (12, 24, 36 months).
+      The 24-month window gives the lowest validation loss.
+  (b) Best validation loss vs. number of retained POD modes
+      (5, 10, 15, 20, 25, 30). Beyond 20 modes, the higher-dimensional
+      output mapping becomes harder to learn from the 384-month record,
+      so 20 modes is chosen as the balance point.
+
+Values are taken from the corresponding validation runs of the main
+pipeline (see Appendix A of the paper).
+
+Input : none (data hardcoded from Appendix A)
+Output: figures/figA1_sensitivity.png, figA1_sensitivity.pdf
+
+Paper : Appendix A; Figure A1
+"""
 import os
 import numpy as np
 import matplotlib.pyplot as plt

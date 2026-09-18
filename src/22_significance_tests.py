@@ -1,4 +1,23 @@
-"""22_significance_tests.py - Wilcoxon + Diebold-Mariano tests."""
+"""
+22_significance_tests.py — Significance tests for predictive skill.
+
+Two complementary tests, following Section 3.5:
+
+  1. Wilcoxon signed-rank test on mode-level RMSE differences across
+     the 20 retained modes (LSTM vs Ridge, LSTM vs ARIMA).
+
+  2. Diebold-Mariano test on per-timestep squared errors across the
+     84-month test period, applied both in aggregate and mode-by-mode.
+
+The output file reports raw p-values for all comparisons.
+
+Input : results/TLv2_pred_lstm.npy, pred_ridge_tuned.npy, TLv2_pred_arima.npy
+        results/TLv2_rmse_lstm.npy, rmse_ridge_tuned.npy, TLv2_rmse_arima.npy
+        results/true_test_v2.npy
+Output: results/significance_tests.txt
+
+Paper : Section 3.5 (Evaluation metrics and significance); Section 4.3
+"""
 import os
 import numpy as np
 from scipy import stats
