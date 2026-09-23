@@ -74,3 +74,28 @@ For reference, the cumulative variance explained by the leading POD modes
 | 52 | 90.0% |
 
 These values are reproduced exactly by `data/pod_variance_ratio.npy`.
+---
+
+## 3. Reproducibility and ERA5 Data Versioning
+
+The figures and tables in the paper were generated from the preprocessed 
+arrays in `data/`, which were produced from the ERA5 version available 
+at the time of submission.
+
+If you re-run the full pipeline from scratch (`01_download_era5_data.py` → 
+`02_preprocess_era5_data.py` → `03_pod_decomposition.py`), the results may 
+differ slightly, because:
+
+1. **ERA5 is periodically updated** by ECMWF (new data added, occasional 
+   revisions to existing values).
+2. The downloaded data will therefore not be byte-identical to what was 
+   used in the paper.
+
+**To reproduce the paper exactly**, use the preprocessed arrays in `data/` 
+and skip `01_download_era5_data.py`. The `run_all.sh` script is configured 
+to do this by default.
+
+| Scenario | Expected result |
+|---|---|
+| Use provided `data/` arrays | Figures and tables match the paper |
+| Re-download ERA5 and re-run full pipeline | Figures may differ slightly (ERA5 versioning) |
