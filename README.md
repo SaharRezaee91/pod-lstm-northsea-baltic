@@ -174,9 +174,17 @@ The ERA5 reanalysis data used in this study are publicly available from the Cope
 
 Preprocessed arrays required to reproduce the paper without re-downloading ERA5 are provided in `data/`. See `data/README_data.md` for details on file contents and preprocessing.
 
-### Note on dimensionality
+#### Note on dimensionality
 
-The multivariate state matrix `X_train` has 17525 columns (5 × 3505 active ocean points). The full spatial POD basis `pod_Vt.npy` has 43005 columns (5 × 8601 grid points), where non-ocean grid points carry zero loadings (25324 zero columns). Both representations are internally consistent: the reduced-order model operates on the first 20 POD coefficients, and the variance explained by these modes matches the values reported in the paper (51.3% at 3 modes, 75.2% at 14 modes, 79.6% at 20 modes).
+The multivariate state matrix `X_train` has **17,525 columns** (5 variables × 3,505 active ocean grid points), corresponding to the spatial degrees of freedom reported in the paper (Section 3.3). The full spatial POD basis `pod_Vt.npy` distributed with this repository has **43,005 columns** (5 variables × 8,601 grid points, i.e., the full 61 × 141 grid), where non-ocean grid points carry **zero loadings** (25,324 zero columns).
+
+The two representations are **algebraically equivalent** for projection onto the first 20 modes, since the non-zero columns of `V20` are identical in both cases:
+
+    A_test = X_test @ V20.T   # identical whether X_test has 17,525 or 43,005 columns
+
+Both representations are internally consistent: the reduced-order model operates on the first 20 POD coefficients, and the variance explained by these modes matches the values reported in the paper (51.3% at 3 modes, 75.2% at 14 modes, 79.6% at 20 modes).
+
+See [docs/TECHNICAL_NOTES.md](docs/TECHNICAL_NOTES.md) for a more detailed explanation.
 
 ## Expected Runtime
 
