@@ -99,3 +99,52 @@ to do this by default.
 |---|---|
 | Use provided `data/` arrays | Figures and tables match the paper |
 | Re-download ERA5 and re-run full pipeline | Figures may differ slightly (ERA5 versioning) |
+This issue documents two clarifications that may be helpful to readers and reviewers.
+
+---
+
+## 1. Ocean mask vs. full-grid POD basis
+
+The paper reports **17,525 spatial degrees of freedom** (5 variables × 3,505 ocean grid points).
+
+The distributed POD basis (`data/pod_Vt.npy`) has **43,005 columns** (5 × 8,601 full-grid points).
+
+These are **algebraically equivalent** for projection onto the first 20 modes, since non-ocean points have zero loadings in `V20`.
+
+See [docs/TECHNICAL_NOTES.md](docs/TECHNICAL_NOTES.md) and the "Note on dimensionality" section in [README.md](README.md) for details.
+
+---
+
+## 2. Reproducibility and ERA5 data versioning
+
+If you **re-run the full pipeline from scratch** (`01_download_era5_data.py` → `02_preprocess_era5_data.py` → `03_pod_decomposition.py`), the figures and tables you obtain may differ **slightly** from those in the paper. This is expected, for two reasons:
+
+1. **ERA5 is periodically updated** by ECMWF. New reanalysis data are added, and (rarely) existing values are revised. Re-downloading ERA5 today will therefore not yield byte-identical data to what was used in the paper.
+
+2. **The paper's figures and tables were generated from the preprocessed arrays in `data/`**, not from a fresh ERA5 download. Those arrays were produced from the ERA5 version available at the time of submission.
+
+**To reproduce the paper exactly**, do **not** re-run `01_download_era5_data.py`. Instead, use the preprocessed data already provided:
+
+    data/X_train.npy
+    data/X_val.npy
+    data/X_test.npy
+    data/V20.npy
+    data/ocean_mask.npy
+
+Then run the downstream scripts:
+
+    python src/03_pod_decomposition.py    # uses data/ if present
+    python src/04_train_pod_lstm.py
+    python src/10_make_fig1_study_area.py
+
+The `run_all.sh` script is configured to use the preprocessed data in `data/` and skip the ERA5 download step unless explicitly requested.
+
+---
+
+## Summary
+
+| Scenario | Expected result |
+|---|---|
+| Use provided `data/` arrays | Figures and tables match the paper |
+| Re-download ERA5 and re-run full pipeline | Figures may differ slightly (ERA5 versioning) |
+| Use masked (17,525) or full-grid (43,005) POD basis | Identical results (algebraically equivalent) |
